@@ -1,7 +1,6 @@
-module hs(a,b,difference,borrow);
+module halfsub(a,b,diff,borrow);
 input a,b;
-output difference,borrow;
-
-
-
+output diff,borrow;
+xor(diff,a,b);
+and(borrow,~a,b);
 endmodule
