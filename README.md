@@ -20,6 +20,7 @@
 **Logic Diagram:**<br>
 
 **Logic Gates:**
+
 ![image](https://github.com/navaneethans/VLSI-LAB-EXPERIMENTS/assets/6987778/ee17970c-3ac9-4603-881b-88e2825f41a4)
 
 
@@ -99,6 +100,7 @@
  endmodule<br>
 
 **Full Subtractor:**<br>
+
  module fs(a,b,bin,d,bout);<br>
  input a,b,bin;<br>
  output d,bout;<br>
@@ -111,6 +113,7 @@
  endmodule<br>
 
 **8 Bit Ripple Carry Adder:**<br>
+
  module fulladder(a,b,c,sum,carry);<br>
  input a,b,c;<br>
  output sum,carry;<br>
@@ -121,6 +124,7 @@
  and(w3,a,b);<br>
  or(carry,w2,w3);<br>
  endmodule<br>
+ 
  module rca_8bit(a,b,cin,s,cout);<br>
  input [7:0]a,b;<br>
  input cin;<br>
