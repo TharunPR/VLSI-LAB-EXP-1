@@ -1,51 +1,168 @@
-# VLSI-LAB-EXPERIMENTS
-AIM: To simulate and synthesis Logic Gates,Adders and Subtractor using Xilinx ISE.
+# SIMULATION AND IMPLEMENTATION OF LOGIC GATES, ADDERS AND SUBTRACTORS
+**AIM:**<br>
 
-APPARATUS REQUIRED: Xilinx 14.7 Spartan6 FPGA
+&emsp;&emsp;To simulate and implement Logic Gates,Adders and Subtractor using VIVADO 2023.2.<br>
 
-PROCEDURE: STEP:1 Start the Xilinx navigator, Select and Name the New project. STEP:2 Select the device family, device, package and speed. STEP:3 Select new source in the New Project and select Verilog Module as the Source type. STEP:4 Type the File Name and Click Next and then finish button. Type the code and save it. STEP:5 Select the Behavioral Simulation in the Source Window and click the check syntax. STEP:6 Click the simulation to simulate the program and give the inputs and verify the outputs as per the truth table. STEP:7 Select the Implementation in the Sources Window and select the required file in the Processes Window. STEP:8 Select Check Syntax from the Synthesize XST Process. Double Click in the Floorplan Area/IO/Logic-Post Synthesis process in the User Constraints process group. UCF(User constraint File) is obtained. STEP:9 In the Design Object List Window, enter the pin location for each pin in the Loc column Select save from the File menu. STEP:10 Double click on the Implement Design and double click on the Generate Programming File to create a bitstream of the design.(.v) file is converted into .bit file here. STEP:12 Load the Bit file into the SPARTAN 6 FPGA STEP:11 On the board, by giving required input, the LEDs starts to glow light, indicating the output.
+**APPARATUS REQUIRED:**<br>
 
-Logic Diagram :
+&emsp;&emsp;VIVADO 2023.2<br>
 
-Logic Gates:
+**PROCEDURE:**<br>
+
+ STEP:1 Launch the Vivado 2023.2 software.<br>
+ STEP:2 Click on “create project ” from the starting page of vivado.<br>
+ STEP:3 Choose the design entry method:RTL(verilog/VHDL)<br>
+ STEP:4 Crete design source and give name to it and click finish.<br>
+ STEP:5 Write the verilog code and check the syntax.<br>
+ STEP:6 Click “run simulation” in the navigator window and click “Run behavioral simulation”.<br>
+ STEP:7 Verify the output in the simulation window.<br>
+
+**Logic Diagram:**<br>
+
+**Logic Gates:**
 ![image](https://github.com/navaneethans/VLSI-LAB-EXPERIMENTS/assets/6987778/ee17970c-3ac9-4603-881b-88e2825f41a4)
 
 
-Half Adder:
+**Half Adder:**
 
 ![image](https://github.com/navaneethans/VLSI-LAB-EXPERIMENTS/assets/6987778/0e1ecb96-0c25-4556-832b-aeeedfdfe7b9)
 
 
-Full adder:
+**Full adder:**
 
 ![image](https://github.com/navaneethans/VLSI-LAB-EXPERIMENTS/assets/6987778/9bb3964c-438f-469d-a3de-c1cca6f323fb)
 
 
-Half Subtractor:
+**Half Subtractor:**
 
 ![image](https://github.com/navaneethans/VLSI-LAB-EXPERIMENTS/assets/6987778/731470b7-eb4e-49f8-8bb7-2994052a7184)
 
 
 
-Full Subtractor:
+**Full Subtractor:**
 
 ![image](https://github.com/navaneethans/VLSI-LAB-EXPERIMENTS/assets/6987778/d66f874b-c1f2-44b3-a035-7149b56430c1)
 
 
 
-8 Bit Ripple Carry Adder
+**8 Bit Ripple Carry Adder:**
 
 ![image](https://github.com/navaneethans/VLSI-LAB-EXPERIMENTS/assets/6987778/7385a408-40a5-4203-8050-b72818622d79)
 
 
 
-VERILOG CODE:
+**VERILOG CODE:**<br>
 
-----Type Verilog Code
+**Logic Gates:**<br>
 
-OUTPUT:
+ module logicgate(a,b,andgate,orgate,nandgate,norgate,xorgate,xnorgate,notgate);<br>
+ input a,b;<br>
+ output andgate,orgate,nandgate,norgate,xorgate,xnorgate,notgate;<br>
+ and(andgate,a,b);<br>
+ or(orgate,a,b);<br>
+ nand(nandgate,a,b);<br>
+ nor(norgate,a,b);<br>
+ xor(xorgate,a,b);<br>
+ xnor(xnorgate,a,b);<br>
+ not(notgate,a);<br>
+ endmodule<br>
 
------Place a Waveform Generated from Xilinx ISE
+**Half Adder:**<br>
 
-RESULT:
+ module half_adder(a,b,sum,carry);<br>
+ input a,b;<br>
+ output sum,carry;<br>
+ xor g1(sum,a,b);<br>
+ and g2(carry,a,b);<br>
+ endmodule<br>
+
+**Full Adder:**<br>
+
+ module fulladder(a,b,c,sum,carry);<br>
+ input a,b,c;<br>
+ output sum,carry;<br>
+ wire w1,w2,w3;<br>
+ xor(w1,a,b);<br>
+ xor(sum,w1,c);<br>
+ and(w2,w1,c);<br>
+ and(w3,a,b);<br>
+ or(carry,w2,w3);<br>
+ endmodule<br>
+
+**Half Subtractor:**<br>
+
+ module halfsub(a,b,diff,borrow);<br>
+ input a,b;<br>
+ output diff,borrow;<br>
+ xor(diff,a,b);<br>
+ and(borrow,~a,b);<br>
+ endmodule<br>
+
+**Full Subtractor:**<br>
+ module fs(a,b,bin,d,bout);<br>
+ input a,b,bin;<br>
+ output d,bout;<br>
+ wire w1,w2,w3;<br>
+ xor(w1,a,b);<br>
+ xor(d,w1,bin);<br>
+ and(w2,~a,b);<br>
+ and(w3,~w1,bin);<br>
+ or(bout,w3,w2);<br>
+ endmodule<br>
+
+**8 Bit Ripple Carry Adder:**<br>
+ module fulladder(a,b,c,sum,carry);<br>
+ input a,b,c;<br>
+ output sum,carry;<br>
+ wire w1,w2,w3;<br>
+ xor(w1,a,b);<br>
+ xor(sum,w1,c);<br>
+ and(w2,w1,c);<br>
+ and(w3,a,b);<br>
+ or(carry,w2,w3);<br>
+ endmodule<br>
+ module rca_8bit(a,b,cin,s,cout);<br>
+ input [7:0]a,b;<br>
+ input cin;<br>
+ output [7:0]s;<br>
+ output cout;<br>
+ wire [7:1]w;<br>
+ fulladder f1(a[0], b[0], cin, s[0], w[1]);<br>
+ fulladder f2(a[1], b[1], w[1], s[1], w[2]);<br>
+ fulladder f3(a[2], b[2], w[2], s[2], w[3]);<br>
+ fulladder f4(a[3], b[3], w[3], s[3], w[4]);<br>
+ fulladder f5(a[4], b[4], w[4], s[4], w[5]);<br>
+ fulladder f6(a[5], b[5], w[5], s[5], w[6]);<br>
+ fulladder f7(a[6], b[6], w[6], s[6], w[7]);<br>
+ fulladder f8(a[7], b[7], w[7], s[7], cout);<br>
+ endmodule<br>
+
+**OUTPUT:**
+
+**Logic Gates:**
+
+![logicgates](https://github.com/TharunPR/VLSI-LAB-EXP-1/assets/117915125/2019027f-3d2e-4488-b17e-57c8850a59e1)
+
+**Half Adder:**
+
+![halfadd](https://github.com/TharunPR/VLSI-LAB-EXP-1/assets/117915125/221aebf9-0ffa-474c-930f-743cc98d02cc)
+
+**Full Adder:**
+
+![fulladd](https://github.com/TharunPR/VLSI-LAB-EXP-1/assets/117915125/7bd02df3-47ba-4638-bb8c-43f1c6b124f0)
+
+**Half Subtractor:**
+
+![halfsub](https://github.com/TharunPR/VLSI-LAB-EXP-1/assets/117915125/eab80fcb-9d88-4c5c-a0b5-c581a3fdc433)
+
+**Full Subtractor:**
+
+![fullsub](https://github.com/TharunPR/VLSI-LAB-EXP-1/assets/117915125/1b1ca532-1483-45b5-bbab-611467188435)
+
+**8 Bit Ripple Carry Adder:**
+
+
+
+**RESULT:**<br>
+&emsp;&emsp;Thus the simulation and implementation of Logic Gates, Adders and Subtractors is done and outputs are verified.
 
