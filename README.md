@@ -3,7 +3,7 @@
 
 &emsp;&emsp;To simulate and implement Logic Gates,Adders and Subtractor using VIVADO 2023.2.<br>
 
-**APPARATUS REQUIRED:**<br>
+**SOFTWARE REQUIRED:**<br>
 
 &emsp;&emsp;VIVADO 2023.2<br>
 
