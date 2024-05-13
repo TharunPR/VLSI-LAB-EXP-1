@@ -182,5 +182,6 @@
 ![8_bit_rca](https://github.com/TharunPR/VLSI-LAB-EXP-1/assets/117915125/0ffba1da-ff70-4649-90c5-ad0730f90a30)
 
 **RESULT:**<br>
+
 &emsp;&emsp;Thus the simulation and implementation of Logic Gates, Adders and Subtractors is done and outputs are verified.
 
