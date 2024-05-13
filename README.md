@@ -1,7 +1,11 @@
 # SIMULATION AND IMPLEMENTATION OF LOGIC GATES, ADDERS AND SUBTRACTORS
 **AIM:**<br>
 
-&emsp;&emsp;To simulate and implement Logic Gates,Adders and Subtractor using VIVADO 2023.2.<br>
+&emsp;&emsp;To simulate and implement the following circuits using VIVADO 2023.2.<br>
+
+&emsp;&emsp;&emsp;&emsp;&emsp;1) Logic Gates<br>
+&emsp;&emsp;&emsp;&emsp;&emsp;2) Adders<br>
+&emsp;&emsp;&emsp;&emsp;&emsp;3) Subtractors<br>
 
 **SOFTWARE REQUIRED:**<br>
 
